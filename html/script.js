@@ -332,3 +332,9 @@ async function updateNetworkName() {
   };
   document.getElementById("network-name").innerText = "Network: " + (map[chainId] || "Unknown");
 }
+
+window.addEventListener("load", () => {
+  if (typeof window.ethereum === "undefined") {
+    document.getElementById("metamask-banner").style.display = "flex";
+  }
+});

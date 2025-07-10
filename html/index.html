@@ -14,84 +14,93 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="wallet-container" style="position: relative;">
-            <button id="wallet-button" class="wallet-button">Conectar</button>
-            <div id="wallet-dropdown" class="wallet-dropdown" style="display: none;">
-                <div id="network-name" class="dropdown-item">Red: -</div>
-                <button id="disconnect-btn" class="dropdown-item">Desconectar</button>
-            </div>
-        </div>
-    </header>
+  <div id="metamask-banner" style="display: none;">
+    <div class="banner-content">
+      <h1>MetaMask Not Detected</h1>
+      <p>To use this dApp, you need to install MetaMask.</p>
+      <a href="https://metamask.io/download/" target="_blank">
+        <button>Install MetaMask</button>
+      </a>
+    </div>
+  </div>
+  <header class="header">
+    <div class="wallet-container" style="position: relative;">
+      <button id="wallet-button" class="wallet-button">Conectar</button>
+      <div id="wallet-dropdown" class="wallet-dropdown" style="display: none;">
+        <div id="network-name" class="dropdown-item">Red: -</div>
+        <button id="disconnect-btn" class="dropdown-item">Desconectar</button>
+      </div>
+    </div>
+  </header>
 
 
 
   <div class="main-content">
-  <div class="card">
-    <div class="tabs">
-      <div class="tab active" data-tab="swap">Swap</div>
-      <div class="tab" data-tab="faucet">Faucet</div>
-    </div>
-    <div class="tab-content active" id="swap">
-      <div id="swap-box">
-        <div id="swap-menu">
-          <label id="labelIHAVE">Pesos</label> to <label id="labelIWANT">USDT</label>
-        </div>
+    <div class="card">
+      <div class="tabs">
+        <div class="tab active" data-tab="swap">Swap</div>
+        <div class="tab" data-tab="faucet">Faucet</div>
+      </div>
+      <div class="tab-content active" id="swap">
+        <div id="swap-box">
+          <div id="swap-menu">
+            <label id="labelIHAVE">Pesos</label> to <label id="labelIWANT">USDT</label>
+          </div>
 
-        <div id="swap-title-box">
-          <p id="swap-title">SimpleSwap</p>
-          <p id="swap-subtitle">Trade tokens in an instant</p>
-        </div>
+          <div id="swap-title-box">
+            <p id="swap-title">SimpleSwap</p>
+            <p id="swap-subtitle">Trade tokens in an instant</p>
+          </div>
 
-        <div class="swap-inputs-container">
-          <form id="form" onsubmit="handleSubmit(); return false;">
+          <div class="swap-inputs-container">
+            <form id="form" onsubmit="handleSubmit(); return false;">
 
-            <!-- Input IHAVE -->
-            <label>
-              <img id="iconIHAVE" src="./ARG.png" class="logo" />
-              <label id="labelIHAVE2">Pesos</label>
-              <div class="swap-balance">Balance: <label id="pesosBalance">0</label></div>
-            </label>
-            <input type="text" class="IHAVE" placeholder="0.0" onchange="setValueTokenToSpend()" />
+              <!-- Input IHAVE -->
+              <label>
+                <img id="iconIHAVE" src="./ARG.png" class="logo" />
+                <label id="labelIHAVE2">Pesos</label>
+                <div class="swap-balance">Balance: <label id="pesosBalance">0</label></div>
+              </label>
+              <input type="text" class="IHAVE" placeholder="0.0" onchange="setValueTokenToSpend()" />
 
-            <!-- Invert button -->
-            <div class="swap-button-wrapper">
-              <button id="swapDirectionBtn" type="button" class="btn btn-light swap-button" onclick="alterTokensPosition()"
-                title="Change tokens">
-                <i class="bi bi-arrow-left-right"></i>
-              </button>
-            </div>
-
-            <!-- Input IWANT -->
-            <label>
-              <img id="iconIWANT" src="./USDT.png" class="logo" />
-              <label id="labelIWANT2">USDT</label>
-              <div class="swap-balance">Balance: <label id="usdtBalance">0</label></div>
-            </label>
-            <input type="text" class="IWANT" placeholder="0.0" readonly />
-
-            <div class="separador-vertical"></div>
-
-            <!-- Price -->
-            <label id="swap-price-word">Price
-              <div id="swap-price">
-                TOKEN PRICE <label class="price">0</label> USDT
+              <!-- Invert button -->
+              <div class="swap-button-wrapper">
+                <button id="swapDirectionBtn" type="button" class="btn btn-light swap-button"
+                  onclick="alterTokensPosition()" title="Change tokens">
+                  <i class="bi bi-arrow-left-right"></i>
+                </button>
               </div>
-            </label>
 
-            <!-- Swap button -->
-            <button id="swap-submit" name="submit" type="submit">Swap</button>
-          </form>
+              <!-- Input IWANT -->
+              <label>
+                <img id="iconIWANT" src="./USDT.png" class="logo" />
+                <label id="labelIWANT2">USDT</label>
+                <div class="swap-balance">Balance: <label id="usdtBalance">0</label></div>
+              </label>
+              <input type="text" class="IWANT" placeholder="0.0" readonly />
+
+              <div class="separador-vertical"></div>
+
+              <!-- Price -->
+              <label id="swap-price-word">Price
+                <div id="swap-price">
+                  TOKEN PRICE <label class="price">0</label> USDT
+                </div>
+              </label>
+
+              <!-- Swap button -->
+              <button id="swap-submit" name="submit" type="submit">Swap</button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="tab-content" id="faucet">
-      <h2>Faucet</h2>
-      <p>Claim 100 Pesos and 100 USDTT</p>
-      <button onclick="claimTokens()" class="faucet-button">Claim Tokens</button>
+      <div class="tab-content" id="faucet">
+        <h2>Faucet</h2>
+        <p>Claim 100 Pesos and 100 USDTT</p>
+        <button onclick="claimTokens()" class="faucet-button">Claim Tokens</button>
+      </div>
     </div>
-  </div>
   </div>
 
   <div id="toast"></div>
