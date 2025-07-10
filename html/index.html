@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SimpleSwap</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/web3@4.11.1/dist/web3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3modal@1.9.12/dist/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+
+  <script src="./script.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="wallet-container" style="position: relative;">
+            <button id="wallet-button" class="wallet-button">Conectar</button>
+            <div id="wallet-dropdown" class="wallet-dropdown" style="display: none;">
+                <div id="network-name" class="dropdown-item">Red: -</div>
+                <button id="disconnect-btn" class="dropdown-item">Desconectar</button>
+            </div>
+        </div>
+    </header>
+
+
+
+  <div class="main-content">
+  <div class="card">
+    <div class="tabs">
+      <div class="tab active" data-tab="swap">Swap</div>
+      <div class="tab" data-tab="faucet">Faucet</div>
+    </div>
+    <div class="tab-content active" id="swap">
+      <div id="swap-box">
+        <div id="swap-menu">
+          <label id="labelIHAVE">Pesos</label> to <label id="labelIWANT">USDT</label>
+        </div>
+
+        <div id="swap-title-box">
+          <p id="swap-title">SimpleSwap</p>
+          <p id="swap-subtitle">Trade tokens in an instant</p>
+        </div>
+
+        <div class="swap-inputs-container">
+          <form id="form" onsubmit="handleSubmit(); return false;">
+
+            <!-- Input IHAVE -->
+            <label>
+              <img id="iconIHAVE" src="./ARG.png" class="logo" />
+              <label id="labelIHAVE2">Pesos</label>
+              <div class="swap-balance">Balance: <label id="pesosBalance">0</label></div>
+            </label>
+            <input type="text" class="IHAVE" placeholder="0.0" onchange="setValueTokenToSpend()" />
+
+            <!-- Invert button -->
+            <div class="swap-button-wrapper">
+              <button id="swapDirectionBtn" type="button" class="btn btn-light swap-button" onclick="alterTokensPosition()"
+                title="Change tokens">
+                <i class="bi bi-arrow-left-right"></i>
+              </button>
+            </div>
+
+            <!-- Input IWANT -->
+            <label>
+              <img id="iconIWANT" src="./USDT.png" class="logo" />
+              <label id="labelIWANT2">USDT</label>
+              <div class="swap-balance">Balance: <label id="usdtBalance">0</label></div>
+            </label>
+            <input type="text" class="IWANT" placeholder="0.0" readonly />
+
+            <div class="separador-vertical"></div>
+
+            <!-- Price -->
+            <label id="swap-price-word">Price
+              <div id="swap-price">
+                TOKEN PRICE <label class="price">0</label> USDT
+              </div>
+            </label>
+
+            <!-- Swap button -->
+            <button id="swap-submit" name="submit" type="submit">Swap</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="faucet">
+      <h2>Faucet</h2>
+      <p>Claim 100 Pesos and 100 USDTT</p>
+      <button onclick="claimTokens()" class="faucet-button">Claim Tokens</button>
+    </div>
+  </div>
+  </div>
+
+  <div id="toast"></div>
+</body>
+
+</html>
