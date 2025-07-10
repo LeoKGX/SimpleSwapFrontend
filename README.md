@@ -1,6 +1,6 @@
 # SimpleSwapFrontend
  
-# > Minimalistic decentralized web application (dApp) to perform swaps between ERC20 tokens in the Scroll Sepolia network, with functionalities for approvals management, token claim from faucet, balance visualization and unit testing with Hardhat.
+# Minimalistic decentralized web application (dApp) to perform swaps between ERC20 tokens in the Scroll Sepolia network, with functionalities for approvals management, token claim from faucet, balance visualization and unit testing with Hardhat.
 
 
 
@@ -8,7 +8,7 @@
 
 
 
-\## Description
+## Description
 
 
 
@@ -38,7 +38,7 @@ In addition, it has a suite of automated tests developed in Hardhat that cover k
 
 ---
 
-\## Features
+## Features
 
 
 
@@ -66,7 +66,7 @@ In addition, it has a suite of automated tests developed in Hardhat that cover k
 
 
 
-\## Technologies
+## Technologies
 
 
 
@@ -86,7 +86,7 @@ In addition, it has a suite of automated tests developed in Hardhat that cover k
 
 ---
 
-\## Installation
+## Installation
 
 
 
@@ -122,7 +122,7 @@ npx hardhat test
 
 
 
-\# Use
+# Use
 
 * Open the dApp in the browser.
 * Connect the wallet with the "Connect" button.
@@ -136,7 +136,7 @@ npx hardhat test
 
 
 
-\# Testing
+# Testing
 
 The project has unit tests in Hardhat that cover:
 
